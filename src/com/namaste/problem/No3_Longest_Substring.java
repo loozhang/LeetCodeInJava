@@ -1,0 +1,29 @@
+package com.namaste.problem;
+
+import java.util.*;
+
+public class No3_Longest_Substring {
+	
+	public static int Process(String s) {
+		int n=s.length();
+		int ans=0;
+		for(int i=0;i<n;i++)
+			for(int j=i+1;j<=n;j++)
+				if(allUnique(s,i,j)) ans=Math.max(ans, j-i);
+		return ans;
+	}
+	
+	public static Boolean allUnique(String s,int start,int end) {
+		Set<Character> set=new HashSet<>();
+		for(int i=start;i<end;i++) {
+			Character ch=s.charAt(i);
+			if(set.contains(ch)) return false;
+			set.add(ch);
+		}
+		return true;
+	}
+	
+	public static void main(String[] args) {
+		System.out.print(Process("lyuydifnelqwzrfdvjyyizcczjwosklfigenojauwtqwkybijbgrajwbusqmcbuk"));
+	}
+}
