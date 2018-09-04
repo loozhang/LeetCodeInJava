@@ -4,7 +4,7 @@ import java.util.*;
 
 public class No3_Longest_Substring {
 	
-	public static int Process(String s) {
+	public static int BruteForce(String s) {
 		int n=s.length();
 		int ans=0;
 		for(int i=0;i<n;i++)
@@ -23,7 +23,25 @@ public class No3_Longest_Substring {
 		return true;
 	}
 	
+	
+	public static int SlidingWindow(String s) {
+		int n=s.length();
+		Set<Character> set=new HashSet<>();
+		int ans=0,i=0,j=0;
+		while(i<n&&j<n) {
+			if(!set.contains(s.charAt(j))) {
+				set.add(s.charAt(j++));
+				ans=Math.max(ans, j-i);
+			}
+			else {
+				set.remove(s.charAt(i++));
+			}
+		}
+		return ans;
+	}
+	
 	public static void main(String[] args) {
-		System.out.print(Process("lyuydifnelqwzrfdvjyyizcczjwosklfigenojauwtqwkybijbgrajwbusqmcbuk"));
+		System.out.println(BruteForce("lyuydifnelqwzrfdvjyyizcczjwosklfigenojauwtqwkybijbgrajwbusqmcbuk"));
+		System.out.println(SlidingWindow("lyuydifnelqwzrfdvjyyizcczjwosklfigenojauwtqwkybijbgrajwbusqmcbuk"));
 	}
 }
