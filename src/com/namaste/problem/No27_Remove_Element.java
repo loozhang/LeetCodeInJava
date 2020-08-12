@@ -12,7 +12,7 @@ public class No27_Remove_Element {
     }
 
     public static void main(String[] args){
-        int[] nums=new int[]{0,1,2,2,3,0,4,2};
+        int[] nums={0,1,2,2,3,0,4,2};
         removeElement(nums,3);
     }
 }

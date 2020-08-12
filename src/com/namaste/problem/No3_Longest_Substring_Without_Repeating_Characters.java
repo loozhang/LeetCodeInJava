@@ -2,7 +2,7 @@ package com.namaste.problem;
 
 import java.util.*;
 
-public class No3_Longest_Substring {
+public class No3_Longest_Substring_Without_Repeating_Characters {
 	
 	public static int BruteForce(String s) {
 		int n=s.length();
@@ -56,7 +56,7 @@ public class No3_Longest_Substring {
 	}
 	
 	public static void main(String[] args) {
-		String testStr="lyuydifnelqwzrfdvjyyizcczjwosklfigenojauwtqwkybijbgrajwbusqmcbuk";
+		String testStr="lfyuydinelqwzrfdvjyyizcczjwosklfigenojauwtqwkybijbgrajwbusqmcbuk";
 		System.out.println(BruteForce(testStr));
 		System.out.println(SlidingWindow(testStr));
 		System.out.println(SlidingWindowOptimized(testStr));
