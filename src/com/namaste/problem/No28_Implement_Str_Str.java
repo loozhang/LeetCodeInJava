@@ -26,7 +26,7 @@ public class No28_Implement_Str_Str {
     }
 
     /*
-    Standard Solution
+    Standard Solution1
      */
     public static int strStr1(String haystack, String needle){
         if(needle.length()==0) return 0;
