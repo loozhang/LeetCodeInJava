@@ -26,14 +26,14 @@ public class No28_Implement_Str_Str {
     }
 
     /*
-    Standard Solution1
+    Standard Solution
      */
     public static int strStr1(String haystack, String needle){
         if(needle.length()==0) return 0;
         int m=haystack.length(),n=needle.length();
         if(m<n) return -1;
         for(int i=0;i<=m-n;i++){
-            int j=0;
+            int j;
             for(j=0;j<n;j++){
                 if(haystack.charAt(i+j)!=needle.charAt(j)) break;
             }
