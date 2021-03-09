@@ -1,5 +1,7 @@
 package com.namaste.problem;
 
+import java.util.Arrays;
+
 public class No14_Longest_Common_Prefix {
     public static String longestCommonPrefix1(String[] strs) {
         if(strs==null||strs.length==0) return "";
@@ -26,8 +28,21 @@ public class No14_Longest_Common_Prefix {
         return strs[0];
     }
 
+    /*
+    1、按照字母顺序将所有字符串排序
+    2、取第一个和最后一个字符串，获取其中最小的一个长度
+    3、按照这个长度去遍历并比较所有字母
+     */
+    public static String longestCommonPrefix3(String[] strs) {
+        if (strs == null || strs.length == 0) return "";
+        Arrays.sort(strs);
+        int i = 0, len = Math.min(strs[0].length(), strs[strs.length - 1].length());
+        while (i < len && strs[0].charAt(i) == strs[strs.length - 1].charAt(i)) i++;
+        return strs[0].substring(0, i);
+    }
+
     public static void main(String[] args){
         String[] strs =new  String[]{"flower","flow","flight"};
-        System.out.println(longestCommonPrefix2(strs));
+        System.out.println(longestCommonPrefix3(strs));
     }
 }
