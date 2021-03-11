@@ -24,6 +24,5 @@ public class No4_Median_of_Two_Sorted_Arrays {
         } else {
             return finKth(nums1,i,nums2,j+k/2,k-k/2);
         }
-
     }
 }
