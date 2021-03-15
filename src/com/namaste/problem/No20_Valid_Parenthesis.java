@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class No20_Valid_Parenthesis {
 
-    public static boolean isValid(String s){
+    public static boolean isValid1(String s){
 
         HashMap<Character,Character> mappings=new HashMap<>();
         mappings.put(')','(');
@@ -30,7 +30,23 @@ public class No20_Valid_Parenthesis {
         return stack.empty();
     }
 
+    public static boolean isValid2(String s){
+        Stack<Character> parentheses=new Stack<>();
+        for (int i = 0; i < s.length(); ++i) {
+            Character c=s.charAt(i);
+            if (c == '(' || c == '[' || c == '{') parentheses.push(c);
+            else {
+                if (parentheses.empty()) return false;
+                if (c == ')' && parentheses.peek() != '(') return false;
+                if (c == ']' && parentheses.peek() != '[') return false;
+                if (c == '}' && parentheses.peek() != '{') return false;
+                parentheses.pop();
+            }
+        }
+        return parentheses.empty();
+    }
+
     public static void main(String[] args){
-        isValid("[]");
+        System.out.println(isValid2("[{]}"));
     }
 }
